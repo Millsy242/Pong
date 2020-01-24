@@ -14,9 +14,10 @@ MyMenu::MyMenu(ige::FileLogger *LOG,SettingsManager *SM) : Menu(LOG,SM)
 }
 void MyMenu::GameSettingsMenu()
 {
-    ImGui::Text("this is the Game Settings Menu!\nIt should be used for settings related to ingame variables. Such as car details, tracks etc");
+    ImGui::InputInt("Max Score", &settings->MaxScore);
+    ImGui::InputInt("Win Margin", &settings->WinMargin);
 }
-void MyMenu::Input(std::queue<sf::Event> &events)
+void MyMenu::Input(std::queue<sf::Event> &events, float dt)
 {
     *log << "Menu Input";
 }

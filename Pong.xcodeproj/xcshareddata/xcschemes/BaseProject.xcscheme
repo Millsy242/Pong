@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0B3004C922B53812007515D0"
-               BuildableName = "MyPetridish"
-               BlueprintName = "MyPetridish"
-               ReferencedContainer = "container:BaseProject.xcodeproj">
+               BuildableName = "Pong"
+               BlueprintName = "Pong"
+               ReferencedContainer = "container:Pong.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B3004C922B53812007515D0"
-            BuildableName = "MyPetridish"
-            BlueprintName = "MyPetridish"
-            ReferencedContainer = "container:BaseProject.xcodeproj">
+            BuildableName = "Pong"
+            BlueprintName = "Pong"
+            ReferencedContainer = "container:Pong.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -45,7 +45,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/danielharvey/Programming/MyPetridish/GameEngineSFML/Resources"
+      customWorkingDirectory = "/Users/danielharvey/Programming/Pong/Pong/Resources"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B3004C922B53812007515D0"
-            BuildableName = "MyPetridish"
-            BlueprintName = "MyPetridish"
-            ReferencedContainer = "container:BaseProject.xcodeproj">
+            BuildableName = "Pong"
+            BlueprintName = "Pong"
+            ReferencedContainer = "container:Pong.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B3004C922B53812007515D0"
-            BuildableName = "MyPetridish"
-            BlueprintName = "MyPetridish"
-            ReferencedContainer = "container:BaseProject.xcodeproj">
+            BuildableName = "Pong"
+            BlueprintName = "Pong"
+            ReferencedContainer = "container:Pong.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

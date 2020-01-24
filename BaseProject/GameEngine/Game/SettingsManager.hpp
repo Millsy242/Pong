@@ -27,6 +27,9 @@ public:
     sf::Vector2u GameApsectRatio{16,9};
     bool Vsync = false;
     bool Fullscreen = false;
+    
+    int MaxScore = 7;
+    int WinMargin = 1;
 private:
     SettingsParser parse;
     std::string FileName = "Settings.txt";

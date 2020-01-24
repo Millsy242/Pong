@@ -35,11 +35,15 @@ void WindowManager::Exit()
 {
     currentWindow->Exit();
 }
+void WindowManager::FixedUpdate(float dt)
+{
+    
+}
 void WindowManager::Render(Window *window)
 {
 
 }
-void WindowManager::Input(std::queue<sf::Event> &events)
+void WindowManager::Input(std::queue<sf::Event> &events, float dt)
 {
 
 }
@@ -52,7 +56,7 @@ void WindowManager::ChangeWindow(windowType wt)
         switch (wt)
         {
             case windowType::eGame:
-                currentWindow = std::make_shared<MyGame>(&log,&Settings);
+                currentWindow = std::make_shared<Pong_Game>(&log,&Settings);
                 log << "Changing to Game";
                 break;
             case windowType::eMenu:

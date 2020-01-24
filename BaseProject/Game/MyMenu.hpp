@@ -19,7 +19,7 @@ public:
     
     void GameSettingsMenu() override;
     void GameSettingsMenuTWO() override;
-    void Input(std::queue<sf::Event> &events) override;
+    void Input(std::queue<sf::Event> &events, float dt) override;
     void Render(Window *window) override;
     
     void EarlyUpdate() override;

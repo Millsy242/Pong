@@ -27,7 +27,7 @@ void Game::Start()
     
     
 }
-void Game::Input(std::queue<sf::Event> &events)
+void Game::Input(std::queue<sf::Event> &events, float dt)
 {
    *log << "Game Input";
 }
@@ -52,7 +52,10 @@ void Game::LateUpdate()
 {
     *log << "Game Late Update";
 }
-
+void Game::FixedUpdate(float dt)
+{
+    *log << "Game Fixed Update";
+}
 void Game::GameUI()
 {
     ImGuiWindowFlags window_flags = 0;

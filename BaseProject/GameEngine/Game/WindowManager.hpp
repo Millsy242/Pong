@@ -13,7 +13,7 @@
 #include "Window.hpp"
 #include "Game.hpp"
 #include "Menu.hpp"
-#include "MyGame.hpp"
+#include "Pong_Game.hpp"
 #include "MyMenu.hpp"
 #include <thread>
 #include "FileLogger.hpp"
@@ -34,9 +34,10 @@ public:
     
     void Start() override;
     void Update() override;
+    void FixedUpdate(float dt) override;
     void Exit() override;
     void Render(Window *window) override;
-    void Input(std::queue<sf::Event> &events) override;
+    void Input(std::queue<sf::Event> &events, float dt) override;
     
     void ChangeWindow(windowType wt);
     void UpdateWindow();

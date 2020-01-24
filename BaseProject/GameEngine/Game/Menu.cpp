@@ -23,7 +23,7 @@ void Menu::Start()
     SettingsTexture.loadFromFile("Menu Icons/Settings.png");
     ExitTexture.loadFromFile("Menu Icons/Exit.png");
 }
-void Menu::Input(std::queue<sf::Event> &events)
+void Menu::Input(std::queue<sf::Event> &events, float dt)
 {
     *log << "Menu Input";
 }
@@ -83,7 +83,10 @@ void Menu::LateUpdate()
 {
     *log << "Menu Late Update";
 }
-
+void Menu::FixedUpdate(float dt)
+{
+    *log << "Menu Fixed Update";
+}
 void Menu::StartScreen()
 {
     ImGui::SetCursorPos(ImVec2(5,40));
@@ -137,7 +140,7 @@ void Menu::ProgramSettingsMenu()
     }
     if(ImGui::SliderInt("Menu Aspect Ratio Y",&MARY, 1, 32))
     {
-        settings->MenuApsectRatio.x = MARY;
+        settings->MenuApsectRatio.y = MARY;
         settings->MenuSize.y = (MenuX/MARX)*MARY;
     }
     ImGui::Checkbox("Vsync", &settings->Vsync);

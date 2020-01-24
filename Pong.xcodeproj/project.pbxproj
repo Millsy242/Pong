@@ -40,7 +40,11 @@
 		0B30050622B55DB9007515D0 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B3004FD22B55DB9007515D0 /* Window.cpp */; };
 		0B458388232D459D00D561B6 /* collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B458386232D459D00D561B6 /* collision.cpp */; };
 		0B6233E922B5918E00E29872 /* WindowHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B6233E722B5918E00E29872 /* WindowHolder.cpp */; };
+		0B62F99523CB908600FA55DB /* Paddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B62F99323CB908600FA55DB /* Paddle.cpp */; };
+		0B62F99823CBB56900FA55DB /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B62F99623CBB56900FA55DB /* Ball.cpp */; };
 		0B9052D52358DF8B004CD66F /* WindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B9052D32358DF8B004CD66F /* WindowManager.cpp */; };
+		0B99C7BE23D89A2400FBD666 /* PlayerPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B99C7BC23D89A2400FBD666 /* PlayerPaddle.cpp */; };
+		0B99C7C123D8A12800FBD666 /* ComputerPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B99C7BF23D8A12800FBD666 /* ComputerPaddle.cpp */; };
 		0BCA9B60236F11BF002603A1 /* libsfml-graphics.2.5.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0B3004D822B538FC007515D0 /* libsfml-graphics.2.5.1.dylib */; };
 		0BCA9B61236F11C0002603A1 /* libsfml-network.2.5.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0B3004D522B538FC007515D0 /* libsfml-network.2.5.1.dylib */; };
 		0BCA9B62236F11C2002603A1 /* libsfml-system.2.5.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0B3004D922B538FC007515D0 /* libsfml-system.2.5.1.dylib */; };
@@ -54,7 +58,7 @@
 		0BCA9B81236F127B002603A1 /* libsfml-audio.2.5.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0B3004D622B538FC007515D0 /* libsfml-audio.2.5.1.dylib */; };
 		0BFB4AD3236F38AA00EAE02B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCA9B7D236F126A002603A1 /* OpenGL.framework */; };
 		0BFB4AD4236F38AA00EAE02B /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 0BCA9B7D236F126A002603A1 /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0BFB4AD8236F478500EAE02B /* MyGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFB4AD6236F478500EAE02B /* MyGame.cpp */; };
+		0BFB4AD8236F478500EAE02B /* Pong_Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFB4AD6236F478500EAE02B /* Pong_Game.cpp */; };
 		0BFB4ADB236F48B200EAE02B /* MyMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFB4AD9236F48B200EAE02B /* MyMenu.cpp */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +146,7 @@
 		0B0F42E3232C40AC00190405 /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
 		0B2D4CC52365EDCC00CC17EA /* SettingsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsManager.cpp; sourceTree = "<group>"; };
 		0B2D4CC62365EDCC00CC17EA /* SettingsManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SettingsManager.hpp; sourceTree = "<group>"; };
-		0B3004CA22B53812007515D0 /* MyPetridish */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MyPetridish; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B3004CA22B53812007515D0 /* Pong */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pong; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B3004D522B538FC007515D0 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../../../../usr/local/Cellar/sfml/2.5.1/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
 		0B3004D622B538FC007515D0 /* libsfml-audio.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.5.1.dylib"; path = "../../../../../usr/local/Cellar/sfml/2.5.1/lib/libsfml-audio.2.5.1.dylib"; sourceTree = "<group>"; };
 		0B3004D722B538FC007515D0 /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "../../../../../usr/local/Cellar/sfml/2.5.1/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
@@ -157,8 +161,17 @@
 		0B5ABB94232E910200A59A2C /* mySpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mySpline.hpp; sourceTree = "<group>"; };
 		0B6233E722B5918E00E29872 /* WindowHolder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WindowHolder.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		0B6233E822B5918E00E29872 /* WindowHolder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WindowHolder.hpp; sourceTree = "<group>"; };
+		0B62F99323CB908600FA55DB /* Paddle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Paddle.cpp; sourceTree = "<group>"; };
+		0B62F99423CB908600FA55DB /* Paddle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Paddle.hpp; sourceTree = "<group>"; };
+		0B62F99623CBB56900FA55DB /* Ball.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		0B62F99723CBB56900FA55DB /* Ball.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ball.hpp; sourceTree = "<group>"; };
 		0B9052D32358DF8B004CD66F /* WindowManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WindowManager.cpp; sourceTree = "<group>"; };
 		0B9052D42358DF8B004CD66F /* WindowManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WindowManager.hpp; sourceTree = "<group>"; };
+		0B99C7BC23D89A2400FBD666 /* PlayerPaddle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerPaddle.cpp; sourceTree = "<group>"; };
+		0B99C7BD23D89A2400FBD666 /* PlayerPaddle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerPaddle.hpp; sourceTree = "<group>"; };
+		0B99C7BF23D8A12800FBD666 /* ComputerPaddle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComputerPaddle.cpp; sourceTree = "<group>"; };
+		0B99C7C023D8A12800FBD666 /* ComputerPaddle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComputerPaddle.hpp; sourceTree = "<group>"; };
+		0BB3CD2C23DB3E6800B7A2E5 /* grand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = grand.hpp; path = BaseProject/GameEngine/grand.hpp; sourceTree = SOURCE_ROOT; };
 		0BCA9B65236F1240002603A1 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
 		0BCA9B66236F1240002603A1 /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
 		0BCA9B67236F1240002603A1 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
@@ -177,8 +190,8 @@
 		0BCA9B75236F1240002603A1 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
 		0BCA9B76236F1240002603A1 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
 		0BCA9B7D236F126A002603A1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		0BFB4AD6236F478500EAE02B /* MyGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyGame.cpp; sourceTree = "<group>"; };
-		0BFB4AD7236F478500EAE02B /* MyGame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyGame.hpp; sourceTree = "<group>"; };
+		0BFB4AD6236F478500EAE02B /* Pong_Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pong_Game.cpp; sourceTree = "<group>"; };
+		0BFB4AD7236F478500EAE02B /* Pong_Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pong_Game.hpp; sourceTree = "<group>"; };
 		0BFB4AD9236F48B200EAE02B /* MyMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMenu.cpp; sourceTree = "<group>"; };
 		0BFB4ADA236F48B200EAE02B /* MyMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMenu.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +217,7 @@
 		0B0F4261232C299000190405 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				0BB3CD2C23DB3E6800B7A2E5 /* grand.hpp */,
 				0BCA9B64236F1240002603A1 /* DearImGUI */,
 				0B0F4262232C299000190405 /* SelbaWard.hpp */,
 				0B0F4263232C299000190405 /* SfMath.hpp */,
@@ -283,7 +297,7 @@
 		0B3004CB22B53812007515D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0B3004CA22B53812007515D0 /* MyPetridish */,
+				0B3004CA22B53812007515D0 /* Pong */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -397,10 +411,18 @@
 		0BFB4AD5236F46E700EAE02B /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				0BFB4AD6236F478500EAE02B /* MyGame.cpp */,
-				0BFB4AD7236F478500EAE02B /* MyGame.hpp */,
+				0BFB4AD6236F478500EAE02B /* Pong_Game.cpp */,
+				0BFB4AD7236F478500EAE02B /* Pong_Game.hpp */,
 				0BFB4AD9236F48B200EAE02B /* MyMenu.cpp */,
 				0BFB4ADA236F48B200EAE02B /* MyMenu.hpp */,
+				0B62F99323CB908600FA55DB /* Paddle.cpp */,
+				0B62F99423CB908600FA55DB /* Paddle.hpp */,
+				0B62F99623CBB56900FA55DB /* Ball.cpp */,
+				0B62F99723CBB56900FA55DB /* Ball.hpp */,
+				0B99C7BC23D89A2400FBD666 /* PlayerPaddle.cpp */,
+				0B99C7BD23D89A2400FBD666 /* PlayerPaddle.hpp */,
+				0B99C7BF23D8A12800FBD666 /* ComputerPaddle.cpp */,
+				0B99C7C023D8A12800FBD666 /* ComputerPaddle.hpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -408,9 +430,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B3004C922B53812007515D0 /* MyPetridish */ = {
+		0B3004C922B53812007515D0 /* Pong */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B3004D122B53812007515D0 /* Build configuration list for PBXNativeTarget "MyPetridish" */;
+			buildConfigurationList = 0B3004D122B53812007515D0 /* Build configuration list for PBXNativeTarget "Pong" */;
 			buildPhases = (
 				0B3004C622B53812007515D0 /* Sources */,
 				0B3004C722B53812007515D0 /* Frameworks */,
@@ -421,9 +443,9 @@
 			);
 			dependencies = (
 			);
-			name = MyPetridish;
+			name = Pong;
 			productName = BaseProject;
-			productReference = 0B3004CA22B53812007515D0 /* MyPetridish */;
+			productReference = 0B3004CA22B53812007515D0 /* Pong */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -440,7 +462,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0B3004C522B53812007515D0 /* Build configuration list for PBXProject "BaseProject" */;
+			buildConfigurationList = 0B3004C522B53812007515D0 /* Build configuration list for PBXProject "Pong" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -453,7 +475,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B3004C922B53812007515D0 /* MyPetridish */,
+				0B3004C922B53812007515D0 /* Pong */,
 			);
 		};
 /* End PBXProject section */
@@ -478,11 +500,13 @@
 				0BCA9B7C236F1240002603A1 /* imgui_draw.cpp in Sources */,
 				0B0F42B8232C299000190405 /* ConsoleScreenOld.cpp in Sources */,
 				0B0F42B5232C299000190405 /* SpinningCard.cpp in Sources */,
-				0BFB4AD8236F478500EAE02B /* MyGame.cpp in Sources */,
+				0BFB4AD8236F478500EAE02B /* Pong_Game.cpp in Sources */,
 				0B0F42B7232C299000190405 /* GallerySprite.cpp in Sources */,
 				0B0F42BC232C299000190405 /* Starfield.cpp in Sources */,
+				0B99C7BE23D89A2400FBD666 /* PlayerPaddle.cpp in Sources */,
 				0B0F42AC232C299000190405 /* Yaml.cpp in Sources */,
 				0B0F42B0232C299000190405 /* NinePatch.cpp in Sources */,
+				0B62F99523CB908600FA55DB /* Paddle.cpp in Sources */,
 				0B0F42E1232C400900190405 /* Base.cpp in Sources */,
 				0B0F42C3232C299000190405 /* SettingsParser.cpp in Sources */,
 				0B0F42B3232C299000190405 /* Ring.cpp in Sources */,
@@ -492,10 +516,12 @@
 				0B2D4CC72365EDCC00CC17EA /* SettingsManager.cpp in Sources */,
 				0B0F42DB232C2FF900190405 /* Menu.cpp in Sources */,
 				0BCA9B77236F1240002603A1 /* imgui_widgets.cpp in Sources */,
+				0B62F99823CBB56900FA55DB /* Ball.cpp in Sources */,
 				0B0F42D8232C2D3200190405 /* main.cpp in Sources */,
 				0B0F42B1232C299000190405 /* Sprite3d.cpp in Sources */,
 				0B0F42BB232C299000190405 /* Spline.cpp in Sources */,
 				0B458388232D459D00D561B6 /* collision.cpp in Sources */,
+				0B99C7C123D8A12800FBD666 /* ComputerPaddle.cpp in Sources */,
 				0BCA9B7A236F1240002603A1 /* imgui_stdlib.cpp in Sources */,
 				0B6233E922B5918E00E29872 /* WindowHolder.cpp in Sources */,
 				0BCA9B78236F1240002603A1 /* imgui.cpp in Sources */,
@@ -657,7 +683,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B3004C522B53812007515D0 /* Build configuration list for PBXProject "BaseProject" */ = {
+		0B3004C522B53812007515D0 /* Build configuration list for PBXProject "Pong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B3004CF22B53812007515D0 /* Debug */,
@@ -666,7 +692,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B3004D122B53812007515D0 /* Build configuration list for PBXNativeTarget "MyPetridish" */ = {
+		0B3004D122B53812007515D0 /* Build configuration list for PBXNativeTarget "Pong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B3004D222B53812007515D0 /* Debug */,
