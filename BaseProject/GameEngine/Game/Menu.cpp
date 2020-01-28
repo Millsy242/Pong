@@ -8,7 +8,7 @@
 
 #include "Menu.hpp"
 #include <iostream>
- Menu::Menu(ige::FileLogger *LOG,SettingsManager *SM)
+ Menu::Menu(std::shared_ptr<ige::FileLogger> LOG,std::shared_ptr<SettingsManager> SM)
 {
     log = LOG;
     settings = SM;
@@ -27,7 +27,7 @@ void Menu::Input(std::queue<sf::Event> &events, float dt)
 {
     *log << "Menu Input";
 }
-void Menu::Render(Window *window)
+void Menu::Render(std::shared_ptr<Window> window)
 {
     *log << "Menu Render";
     window->BeginDraw(sf::Color(40,45,55));
@@ -95,6 +95,7 @@ void Menu::StartScreen()
        
        if(ImGui::ImageButton((StartTexture)))//,sf::Vector2f(window->GetSize().x-10,window->GetSize().y/4)))
        {
+           settings->UpdateFile();
             Active = false;
        }
 

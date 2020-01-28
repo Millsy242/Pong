@@ -18,7 +18,7 @@ public:
     void Start() override;
     void Update() override;
     void Exit() override;
-    void Render(Window *window) override;
+    void Render(std::shared_ptr<Window> window) override;
     void Input(std::queue<sf::Event> &events, float dt) override;
     //Used to collide with paddle
     void Collide(sf::Vector2f col_pos,float paddleHeight, float intersectY);
@@ -26,8 +26,11 @@ public:
     void Collide();
     void SetPosition(sf::Vector2f pos, bool SetStart=false);
     void Move(float dt);
-    void ChangeVelocity(sf::Vector2f v);
+    void SetVelocity(sf::Vector2f v);
     
+    void SetSize(sf::Vector2f size);
+    
+    sf::Vector2f GetSize();
     sf::Vector2f GetVelocity();
     sf::Vector2f GetPosition();
     sf::FloatRect GetRect();

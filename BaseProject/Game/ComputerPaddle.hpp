@@ -19,14 +19,16 @@ public:
     
     void Input(std::queue<sf::Event> &events, float dt) override;
     void Giveballdetails(sf::Vector2f bPos, sf::Vector2f bVel) override;
+    void SetAIDifficulty(int difficulty) override;
     
 private:
     sf::Vector2f ballpos;
     sf::Vector2f ballVelocity;
 
-    int paddlespeed_modifier = 4;
-    unsigned int riskValue = 8;
+    double paddlespeed_modifier = 4;
+    double riskValue = 8;
     double predictionAccuracy = 1.0;
+    int difficulty_ = 0; 
 };
 
 #endif /* ComputerPaddle_hpp */

@@ -34,6 +34,15 @@ void SettingsManager::Setup()
         parse.get("GameAspectRatioY",GARY);
         parse.get("Vsync", Vsync);
         parse.get("FullScreen",Fullscreen);
+        parse.get("MaxScore",MaxScore);
+        parse.get("WinMargin",WinMargin);
+        parse.get("AIDifficulty_Player_1",AIDifficultyP1);
+        parse.get("AIDifficulty_Player_2",AIDifficultyP2);
+        parse.get("Player1_AI",Player1AI);
+        parse.get("Player2_AI",Player2AI);
+        parse.get("PaddleSize",PaddleSize);
+        parse.get("ShowBallPredict",showBallPrediction);
+        parse.get("PaddleSpeed",paddleSpeed);
         
         GameApsectRatio = sf::Vector2u(GARX,GARY);
         MenuApsectRatio = sf::Vector2u(MARX,MARY);
@@ -62,7 +71,15 @@ void SettingsManager::UpdateFile()
     parse.set("GameScreenWidth", GameSize.x);
     parse.set("Vsync", Vsync);
     parse.set("FullScreen",Fullscreen);
-    
+    parse.set("MaxScore",MaxScore);
+    parse.set("WinMargin",WinMargin);
+    parse.set("AIDifficulty_Player_1",AIDifficultyP1);
+    parse.set("AIDifficulty_Player_2",AIDifficultyP2);
+    parse.set("Player1_AI",Player1AI);
+    parse.set("Player2_AI",Player2AI);
+    parse.set("PaddleSize",PaddleSize);
+    parse.set("ShowBallPredict",showBallPrediction);
+    parse.set("PaddleSpeed",paddleSpeed);
     parse.saveToFile(FileName);
 }
 

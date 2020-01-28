@@ -11,14 +11,14 @@
 PlayerPaddle::PlayerPaddle()
 {
     isAI = false;
-    
 }
 
 void PlayerPaddle::Input(std::queue<sf::Event> &events, float dt)
 {
+    SetVelocity({0, 0});
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-       Move(0, -PaddleSpeed, dt);
+        SetVelocity({0, -PaddleSpeed});
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-       Move(0, PaddleSpeed, dt);
+        SetVelocity({0, PaddleSpeed});
 }

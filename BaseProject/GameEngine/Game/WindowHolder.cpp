@@ -13,9 +13,10 @@
 void WindowHolder::Start()
 {
 	Active = true;
+	
 	c.restart();
 }
-void WindowHolder::GiveWindow(Window *w)
+void WindowHolder::GiveWindow(std::shared_ptr<Window> w)
 {
 	window = w;
 }
@@ -25,6 +26,7 @@ void WindowHolder::Stats()
 	ImGuiWindowFlags window_flags = 0;
 	window_flags |= ImGuiWindowFlags_NoMove;
 	window_flags |= ImGuiWindowFlags_NoResize;
+	window_flags |= ImGuiWindowFlags_AlwaysAutoResize;
 	window_flags |= ImGuiWindowFlags_NoBackground;
 	window_flags |= ImGuiWindowFlags_NoNav;
 	window_flags |= ImGuiWindowFlags_NoInputs;
@@ -33,11 +35,8 @@ void WindowHolder::Stats()
 	window_flags |= ImGuiWindowFlags_NoTitleBar;
 	
     ImGui::Begin("Stats",NULL,window_flags);
-	ImGui::SetWindowSize("Stats", ImVec2(110,70));
     ImGui::Text("FPS: %i \nDT: %fms",window->GetFPS(),window->getDT()*1000);
     ImGui::End();
-	
-	
 	
 	if(Debug)
 	{
@@ -50,8 +49,6 @@ void WindowHolder::Stats()
 		if(DebugStyleEditer)
 			ImGui::ShowStyleEditor();
 	}
-	
-	
 }
 
 void WindowHolder::Update()
@@ -76,7 +73,6 @@ void WindowHolder::Update()
 			//Ensure Fps doesnt change User experiance
 			while (accumulatedTime >= frameDuration && Active)
 			{
-				
 				accumulatedTime -= frameDuration;
 				EarlyUpdate();
 				LateUpdate();

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Daniel Harvey. All rights reserved.
 //
 
+
 #include "WindowManager.hpp"
 
 int main()
@@ -16,4 +17,5 @@ int main()
     WM.Exit();
     return 0;
 }
+
 

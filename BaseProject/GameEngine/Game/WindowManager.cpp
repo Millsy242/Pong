@@ -11,15 +11,19 @@
 
 void WindowManager::Start()
 {
-    Settings.Setup();
-    window.Start(" ",Settings.MenuSize);
+    log = std::shared_ptr<ige::FileLogger>(new ige::FileLogger("0.5","GameLog.txt"));
+    settings = std::shared_ptr<SettingsManager>(new SettingsManager());
+    settings->Setup();
+    
+    window = std::shared_ptr<Window>(new Window(log));
+    window->Start(" ",settings->MenuSize);
     ChangeWindow(windowType::eMenu);
 }
 void WindowManager::Update()
 {
     while(currentWindow->Continue)
     {
-        Settings.Setup();
+        settings->Setup();
         currentWindow->Update();
         if(currentWindow->Continue)
         {
@@ -29,7 +33,7 @@ void WindowManager::Update()
                 ChangeWindow(windowType::eMenu);
         }
     }
-    log << "Exiting";
+    *log << "Exiting";
 }
 void WindowManager::Exit()
 {
@@ -39,7 +43,7 @@ void WindowManager::FixedUpdate(float dt)
 {
     
 }
-void WindowManager::Render(Window *window)
+void WindowManager::Render(std::shared_ptr<Window> window)
 {
 
 }
@@ -56,17 +60,17 @@ void WindowManager::ChangeWindow(windowType wt)
         switch (wt)
         {
             case windowType::eGame:
-                currentWindow = std::make_shared<Pong_Game>(&log,&Settings);
-                log << "Changing to Game";
+                currentWindow = std::make_shared<Pong_Game>(log,settings);
+                *log << "Changing to Game";
                 break;
             case windowType::eMenu:
-                currentWindow = std::make_shared<MyMenu>(&log,&Settings);
-                log << "Changing to Menu";
+                currentWindow = std::make_shared<MyMenu>(log,settings);
+                *log << "Changing to Menu";
                 break;
             default:
                 break;
         }
-        currentWindow->GiveWindow(&window);
+        currentWindow->GiveWindow(window);
         currentWindow->Start();
     }
 }
@@ -74,11 +78,11 @@ void WindowManager::UpdateFromSettings()
 {
     if(CurrentWindowType == windowType::eGame)
     {
-        window.Start("Game", Settings.GameSize, Settings.Fullscreen);
+        window->Start("Game", settings->GameSize, settings->Fullscreen);
     }
     else if(CurrentWindowType == windowType::eMenu)
     {
-        window.Start("Menu", Settings.MenuSize);
+        window->Start("Menu", settings->MenuSize);
     }
-    window.SetVsync(Settings.Vsync);
+    window->SetVsync(settings->Vsync);
 }

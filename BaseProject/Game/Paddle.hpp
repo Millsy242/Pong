@@ -19,11 +19,12 @@ public:
     void Start() override;
     void Update() override;
     void Exit() override;
-    void Render(Window *window) override;
+    void Render(std::shared_ptr<Window> window) override;
     virtual void Input(std::queue<sf::Event> &events, float dt) override = 0;
-
+    void SetSize(sf::Vector2f size);
     void SetPosition(sf::Vector2f Pos, bool SetStart = false); 
-    void Move(float moveX, float moveY, float dt);
+    void Move(float dt);
+    void SetVelocity(sf::Vector2f vel);
     void ResetPosition();
     void SetSide(bool isleft);
     bool CollwithBall(Ball *b);
@@ -31,6 +32,10 @@ public:
     virtual void GiveWindowSize(sf::Vector2f winsize);
     void setlastTouched(bool lt);
     
+    virtual void SetAIDifficulty(int difficulty){};
+    void SetPaddleSpeed(float speed);
+    
+    sf::Vector2f GetVelocity();
     sf::Vector2f GetPosition();
     sf::Vector2f GetSize();
     

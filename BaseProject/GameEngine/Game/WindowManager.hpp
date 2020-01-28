@@ -11,8 +11,7 @@
 #include "Base.hpp"
 #include <SFML/Graphics.hpp>
 #include "Window.hpp"
-#include "Game.hpp"
-#include "Menu.hpp"
+
 #include "Pong_Game.hpp"
 #include "MyMenu.hpp"
 #include <thread>
@@ -29,14 +28,14 @@ public:
         eMenu
     };
     
-    WindowManager() : log("0.5","GameLog.txt"), window(&log) {};
+    WindowManager() {};
     ~WindowManager(){};
     
     void Start() override;
     void Update() override;
     void FixedUpdate(float dt) override;
     void Exit() override;
-    void Render(Window *window) override;
+    void Render(std::shared_ptr<Window> window) override;
     void Input(std::queue<sf::Event> &events, float dt) override;
     
     void ChangeWindow(windowType wt);
@@ -45,10 +44,12 @@ public:
     
 private:
     std::shared_ptr<WindowHolder> currentWindow;
-    Window window;
+    std::shared_ptr<Window> window;
+    std::shared_ptr<ige::FileLogger> log = nullptr;
+    std::shared_ptr<SettingsManager> settings;
     windowType CurrentWindowType = windowType::eNull;
-    ige::FileLogger log;
-    SettingsManager Settings; 
+//    ige::FileLogger log;
+//    SettingsManager Settings;
 };
 
 #endif /* WindowManager_hpp */

@@ -30,10 +30,17 @@ public:
     
     int MaxScore = 7;
     int WinMargin = 1;
+    int AIDifficultyP1 = 0;
+    int AIDifficultyP2 = 0;
+    bool Player1AI = false;
+    bool Player2AI = false;
+    bool showBallPrediction = true;
+    float paddleSpeed = 400.f;    
+    float PaddleSize = 128; 
 private:
     SettingsParser parse;
     std::string FileName = "Settings.txt";
-    int SettingsVersion = 4; 
+    int SettingsVersion = 5; 
 
 };
 

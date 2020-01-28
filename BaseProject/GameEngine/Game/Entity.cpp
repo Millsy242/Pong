@@ -13,7 +13,7 @@ void Entity::LoadTexture(std::string filepath)
     Collision::CreateTextureAndBitmask(EntityTexture, filepath);
     EntitySprite.setTexture(EntityTexture);
 }
-void Entity::Render(Window *window)
+void Entity::Render(std::shared_ptr<Window> window)
 {
     if(Active)
         window->draw(EntitySprite);

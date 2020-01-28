@@ -21,8 +21,7 @@
 class Window
 {
 public:
-    
-    Window(ige::FileLogger *LOG);
+    Window(std::shared_ptr<ige::FileLogger> LOG);
     void Start(const std::string& windowName,sf::Vector2u WindowSize,bool Fullscreen = false);
     void Update();
     void BeginDraw(sf::Color colour = sf::Color::Magenta);
@@ -30,31 +29,36 @@ public:
     void EndDraw();
     void Close();
     void SetSize(sf::Vector2u size);
-    sf::Vector2i GetMouse();
-    bool IsOpen() const;
-    sf::Vector2u GetCentre();
+    void SetVsync(bool Vsync);
     void SetTitle(std::string &title);
-    bool RenderToTexture = false;
+    bool IsOpen() const;
+
     float getDT();
     int GetFPS();
+    
     sf::Event GetEvent();
     sf::Vector2u GetSize();
-    void SetVsync(bool Vsync);
+    sf::Vector2u GetCentre();
+    sf::Vector2i GetMouse();
+    
     sf::RenderWindow window;
+    
+    bool RenderToTexture = false;
+    
     std::queue<sf::Event> events;
+    
 private:
     void CalculateDT();
-    
-    std::thread thread;
-    
-    
+
     sf::RenderTexture rendertexture;
     sf::Sprite windowtexture;
-    FPS fps;
-    float deltatime;
     sf::Clock clock;
     sf::Event event;
-    ige::FileLogger *log;
+    
+    FPS fps;
+    float deltatime;
+
+    std::shared_ptr<ige::FileLogger> log;
 };
 
 

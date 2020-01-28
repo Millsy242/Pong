@@ -27,7 +27,7 @@ public:
     void Update() override;
     virtual void EntityUpdate()  = 0 ;
     virtual void FixedUpdate(float dt) override {};
-    virtual void Render(Window *window) override;
+    virtual void Render(std::shared_ptr<Window> window) override;
     virtual void Input(std::queue<sf::Event> &events, float dt) override = 0;
     virtual void Exit() override = 0;
     virtual bool isCollision(sf::Sprite *sprite);

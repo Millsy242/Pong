@@ -20,8 +20,8 @@ Ball::~Ball()
 }
 void Ball::Start()
 {
-    ball_shape.setSize({8,8});
-    ball_shape.setOrigin({4,4});
+    ball_shape.setSize({2,2});
+    ball_shape.setOrigin({ball_shape.getSize().x/2,ball_shape.getSize().y/2});
     ball_shape.setOutlineThickness(2);
     ball_shape.setOutlineColor(sf::Color::Blue);
     ball_shape.setFillColor(sf::Color::White);
@@ -37,9 +37,9 @@ sf::Vector2f Ball::GetVelocity()
 void Ball::Reset(bool fireright)
 {
     if(fireright)
-        ChangeVelocity({-MaxSpeed,(float)random.d(50) - 25.f });
+        SetVelocity({-MaxSpeed,(float)random.d(50) - 25.f });
     else
-        ChangeVelocity({MaxSpeed,(float)random.d(50) - 25.f });
+        SetVelocity({MaxSpeed,(float)random.d(50) - 25.f });
     SetPosition(StartPosition);
 }
 sf::Vector2f Ball::GetPosition()
@@ -52,14 +52,14 @@ sf::FloatRect Ball::GetRect()
 }
 void Ball::Collide()
 {
-    ChangeVelocity({Velocity.x,-Velocity.y});
+    SetVelocity({Velocity.x,-Velocity.y});
 }
 void Ball::Collide(sf::Vector2f col_pos,float paddleHeight, float intersectY)
 {
     auto relativeIntersectY = (col_pos.y+(paddleHeight/2)) - intersectY;
     auto normalisedrelativeIntersectY = relativeIntersectY/(paddleHeight/2) -1;
     
-    ChangeVelocity({-Velocity.x,MaxSpeed * normalisedrelativeIntersectY});
+    SetVelocity({-Velocity.x,MaxSpeed * normalisedrelativeIntersectY});
 }
 void Ball::SetPosition(sf::Vector2f pos, bool SetStart)
 {
@@ -67,11 +67,15 @@ void Ball::SetPosition(sf::Vector2f pos, bool SetStart)
     if(SetStart)
         StartPosition = pos; 
 }
+sf::Vector2f Ball::GetSize()
+{
+    return ball_shape.getSize();
+}
 void Ball::Exit()
 {
     return;
 }
-void Ball::Render(Window *window)
+void Ball::Render(std::shared_ptr<Window> window)
 {
     window->draw(ball_shape);
 }
@@ -83,7 +87,11 @@ void Ball::Move(float dt)
 {
     ball_shape.move({Velocity.x*dt,Velocity.y*dt});
 }
-void Ball::ChangeVelocity(sf::Vector2f v)
+void Ball::SetVelocity(sf::Vector2f v)
 {
     Velocity = v;
+}
+void Ball::SetSize(sf::Vector2f size)
+{
+    ball_shape.setSize(size);
 }

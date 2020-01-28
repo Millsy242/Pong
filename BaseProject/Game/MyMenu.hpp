@@ -15,12 +15,12 @@
 class MyMenu : public Menu
 {
 public:
-    MyMenu(ige::FileLogger *LOG,SettingsManager *SM);
+    MyMenu(std::shared_ptr<ige::FileLogger> LOG,std::shared_ptr<SettingsManager> SM);
     
     void GameSettingsMenu() override;
     void GameSettingsMenuTWO() override;
     void Input(std::queue<sf::Event> &events, float dt) override;
-    void Render(Window *window) override;
+    void Render(std::shared_ptr<Window> window) override;
     
     void EarlyUpdate() override;
     void LateUpdate() override;

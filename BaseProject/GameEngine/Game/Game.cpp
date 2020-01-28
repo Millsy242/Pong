@@ -6,8 +6,8 @@
 //  Copyright © 2019 Daniel Harvey. All rights reserved.
 //
 #include "Game.hpp"
-#include <iostream>
-Game::Game(ige::FileLogger *LOG,SettingsManager *SM)
+
+Game::Game(std::shared_ptr<ige::FileLogger> LOG,std::shared_ptr<SettingsManager> SM)
 {
     log = LOG;
     settings = SM;
@@ -23,15 +23,12 @@ Game::Game(ige::FileLogger *LOG,SettingsManager *SM)
 void Game::Start()
 {
     *log << "Game Start";
-    
-    
-    
 }
 void Game::Input(std::queue<sf::Event> &events, float dt)
 {
    *log << "Game Input";
 }
-void Game::Render(Window *window)
+void Game::Render(std::shared_ptr<Window> window)
 {
     *log << "Game Render";
     window->BeginDraw(sf::Color(20,55,34));
@@ -65,6 +62,7 @@ void Game::GameUI()
     window_flags |= ImGuiWindowFlags_NoNavFocus;
     window_flags |= ImGuiWindowFlags_NoTitleBar;
     window_flags |= ImGuiWindowFlags_AlwaysAutoResize;
+    window_flags |= ImGuiWindowFlags_NoBackground;
     
     ImGui::Begin("GameUI",NULL,window_flags);
     if(Pause)
