@@ -53,6 +53,10 @@ void Game::FixedUpdate(float dt)
 {
     *log << "Game Fixed Update";
 }
+void Game::ShowPauseMenu(bool SPM)
+{
+    ShowPause = SPM;
+}
 void Game::GameUI()
 {
     ImGuiWindowFlags window_flags = 0;
@@ -68,17 +72,20 @@ void Game::GameUI()
     if(Pause)
     {
         *log << "Game Paused";
-        //centre window on screen
-        ImGui::SetWindowPos(ImVec2((window->GetCentre().x - ImGui::GetWindowSize().x/2),(window->GetCentre().y - ImGui::GetWindowSize().y/2)));
-        
-        ImGui::Text("PAUSED");
-        if(ImGui::Button("Return"))
+        if(ShowPause)
         {
-            Pause = false;
-        }
-        if(ImGui::Button("Menu"))
-        {
-             Active = false;
+            //centre window on screen
+            ImGui::SetWindowPos(ImVec2((window->GetCentre().x - ImGui::GetWindowSize().x/2),(window->GetCentre().y - ImGui::GetWindowSize().y/2)));
+            
+            ImGui::Text("PAUSED");
+            if(ImGui::Button("Return"))
+            {
+                Pause = false;
+            }
+            if(ImGui::Button("Menu"))
+            {
+                 Active = false;
+            }
         }
     }
     else

@@ -40,7 +40,7 @@ private:
     sf::Vector2f Position;
     sf::Vector2f Velocity;
     sf::Vector2f StartPosition; 
-    float MaxSpeed = 600;
+    float MaxSpeed = 400;
     GRand random; 
     int bounces = 0; 
 };

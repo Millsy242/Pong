@@ -24,13 +24,15 @@ public:
     void SetSize(sf::Vector2f size);
     void SetPosition(sf::Vector2f Pos, bool SetStart = false); 
     void Move(float dt);
+    void Move(float moveX, float moveY, float dt);
     void SetVelocity(sf::Vector2f vel);
     void ResetPosition();
     void SetSide(bool isleft);
     bool CollwithBall(Ball *b);
     virtual void Giveballdetails(sf::Vector2f bPos, sf::Vector2f bVel){};
-    virtual void GiveWindowSize(sf::Vector2f winsize);
+    virtual void GiveGameArea(sf::IntRect GameArea);
     void setlastTouched(bool lt);
+    bool getOnLeft();
     
     virtual void SetAIDifficulty(int difficulty){};
     void SetPaddleSpeed(float speed);
@@ -44,13 +46,15 @@ public:
     
 protected:
     float PaddleSpeed = 400.f;
-    sf::Vector2f WindowSize;
+    sf::IntRect WindowSize;
     bool lastTouched = false;
     bool onLeft = false;
+    sf::Vector2f StartPosition ={0,0};
+    sf::RectangleShape paddle_shape;
 private:
     sf::Vector2f Velocity; //speed X and speed Y
-    sf::RectangleShape paddle_shape;
-    sf::Vector2f StartPosition ={0,0};
+    
+    
     float maxVelocity = 2.f;
     float friction = 0.01;
     

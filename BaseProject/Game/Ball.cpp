@@ -20,7 +20,7 @@ Ball::~Ball()
 }
 void Ball::Start()
 {
-    ball_shape.setSize({2,2});
+    ball_shape.setSize({4,4});
     ball_shape.setOrigin({ball_shape.getSize().x/2,ball_shape.getSize().y/2});
     ball_shape.setOutlineThickness(2);
     ball_shape.setOutlineColor(sf::Color::Blue);
@@ -56,8 +56,8 @@ void Ball::Collide()
 }
 void Ball::Collide(sf::Vector2f col_pos,float paddleHeight, float intersectY)
 {
-    auto relativeIntersectY = (col_pos.y+(paddleHeight/2)) - intersectY;
-    auto normalisedrelativeIntersectY = relativeIntersectY/(paddleHeight/2) -1;
+    auto relativeIntersectY = (col_pos.y+(paddleHeight/2.1f)) - intersectY;
+    auto normalisedrelativeIntersectY = relativeIntersectY/(paddleHeight/2.1f) -1;
     
     SetVelocity({-Velocity.x,MaxSpeed * normalisedrelativeIntersectY});
 }

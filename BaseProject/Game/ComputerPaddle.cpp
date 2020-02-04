@@ -17,10 +17,10 @@ void ComputerPaddle::Input(std::queue<sf::Event> &events, float dt)
     {
         if(difficulty_ > 50)
         {
-            if(WindowSize.y/2 > GetPosition().y)
-                SetVelocity({0, (float)paddlespeed_modifier});
-            if(WindowSize.y/2 < GetPosition().y)
-                 SetVelocity({0, -(float)paddlespeed_modifier});
+            if(StartPosition.y > GetPosition().y)
+                Move(0, (float)paddlespeed_modifier, dt);
+            if(StartPosition.y < GetPosition().y)
+               Move(0, -(float)paddlespeed_modifier, dt);
         }
     }
     else
@@ -34,7 +34,7 @@ void ComputerPaddle::Input(std::queue<sf::Event> &events, float dt)
             tempX += tempVX * dt * predictionAccuracy;
             tempY += tempVY * dt * predictionAccuracy;
             
-            if(tempY<=0 || tempY >= WindowSize.y)
+            if(tempY<=WindowSize.top || tempY >= WindowSize.height)
                 tempVY = -tempVY;
             i++;
         };
@@ -44,7 +44,7 @@ void ComputerPaddle::Input(std::queue<sf::Event> &events, float dt)
             while (tempX > GetPosition().x)
             {
                 predict();
-                if(i > difficulty_)
+                if(i > (1/dt) *(difficulty_/60))
                     break;
             }
         }
@@ -53,16 +53,15 @@ void ComputerPaddle::Input(std::queue<sf::Event> &events, float dt)
             while (tempX < GetPosition().x)
             {
                 predict();
-                if(i > difficulty_)
+                if(i > (1/dt) *(difficulty_/60))
                     break;
             }
         }
-        
-        if(tempY  > GetPosition().y - GetSize().y/riskValue)
-            SetVelocity({0, PaddleSpeed});
-            
-        if(tempY  < GetPosition().y + GetSize().y/riskValue)
-            SetVelocity({0, -PaddleSpeed});
+        if(tempY  > GetPosition().y - (GetSize().y/riskValue))
+            Move(0, PaddleSpeed, dt);
+        if(tempY  < GetPosition().y + (GetSize().y/riskValue))
+            Move(0, -PaddleSpeed, dt);
+         
     }
     
 }
@@ -82,8 +81,8 @@ void ComputerPaddle::SetAIDifficulty(int difficulty)
         return ((input - input_low) / (input_high-input_low)) * (output_high - output_low) + output_low;
     };
     
-    paddlespeed_modifier = ((double)difficulty/100.0) * PaddleSpeed;
+    paddlespeed_modifier = ((double)difficulty/200.0) * PaddleSpeed;
     riskValue =   minmaxrange((float)difficulty,100,1,2.1,10);
     difficulty_ = difficulty;
-    predictionAccuracy = 100.0/(double)difficulty;
+    predictionAccuracy =  100.0/(double)difficulty;
 }

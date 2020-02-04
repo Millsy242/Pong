@@ -13,21 +13,25 @@
 #include <stdio.h>
 class Game : public WindowHolder
 {
-    public:
-        Game(std::shared_ptr<ige::FileLogger> LOG,std::shared_ptr<SettingsManager> SM);
-        ~Game(){};
-        
-        virtual void Start() override;
-        virtual void Input(std::queue<sf::Event> &events, float dt) override;
-        virtual void Render(std::shared_ptr<Window> window) override;
-        virtual void UI() override;
-        virtual void EarlyUpdate() override;
-        virtual void LateUpdate() override;
-        virtual void FixedUpdate(float dt) override;
-    protected:
-       void GameUI();
-    protected:
-        sf::Texture DebugTexture,ExitTexture,PauseTexture,SettingsTexture;
+public:
+    Game(std::shared_ptr<ige::FileLogger> LOG,std::shared_ptr<SettingsManager> SM);
+    ~Game(){};
+    
+    virtual void Start() override;
+    virtual void Input(std::queue<sf::Event> &events, float dt) override;
+    virtual void Render(std::shared_ptr<Window> window) override;
+    virtual void UI() override;
+    virtual void EarlyUpdate() override;
+    virtual void LateUpdate() override;
+    virtual void FixedUpdate(float dt) override;
+protected:
+    void GameUI();
+    void ShowPauseMenu(bool SPM);
+    sf::Texture DebugTexture,ExitTexture,PauseTexture,SettingsTexture;
+    sf::IntRect GameArea{0,0,0,0};
+    sf::RectangleShape GameAreaShape; 
+private:
+    bool ShowPause = true;
 };
 #endif /* Game_hpp */
 

@@ -155,6 +155,7 @@
 		0B3004FD22B55DB9007515D0 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		0B3004FE22B55DB9007515D0 /* FPS.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FPS.hpp; sourceTree = "<group>"; };
 		0B3004FF22B55DB9007515D0 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
+		0B3AA9E623E73E0D00A53D52 /* ImGuiFileManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ImGuiFileManager.hpp; sourceTree = "<group>"; };
 		0B458386232D459D00D561B6 /* collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = collision.cpp; sourceTree = "<group>"; };
 		0B458387232D459D00D561B6 /* collision.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = collision.hpp; sourceTree = "<group>"; };
 		0B5ABB94232E910200A59A2C /* mySpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mySpline.hpp; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 				0B0F4264232C299000190405 /* SettingsParser.hpp */,
 				0B458386232D459D00D561B6 /* collision.cpp */,
 				0B458387232D459D00D561B6 /* collision.hpp */,
+				0B3AA9E623E73E0D00A53D52 /* ImGuiFileManager.hpp */,
 			);
 			path = External;
 			sourceTree = "<group>";

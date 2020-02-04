@@ -19,18 +19,22 @@ Paddle::~Paddle()
 }
 void Paddle::Start()
 {
-    paddle_shape.setSize({16,128});
+    paddle_shape.setSize({32,128});
     paddle_shape.setOrigin(paddle_shape.getSize().x/2, paddle_shape.getSize().y/2);
     paddle_shape.setFillColor(sf::Color::White);
     paddle_shape.setOutlineColor(sf::Color::Red);
     paddle_shape.setOutlineThickness(2);
 }
+bool Paddle::getOnLeft()
+{
+    return onLeft;
+}
 void Paddle::Update()
 {
-    if(GetPosition().y - GetSize().y/2 < 0)
-        SetPosition({GetPosition().x,GetSize().y/2});
-    if(GetPosition().y + GetSize().y/2 > WindowSize.y)
-        SetPosition({GetPosition().x,WindowSize.y - GetSize().y/2});
+    if(GetPosition().y - GetSize().y/2 < WindowSize.top)
+        SetPosition({GetPosition().x,WindowSize.top + GetSize().y/2});
+    if(GetPosition().y + GetSize().y/2 > WindowSize.height)
+        SetPosition({GetPosition().x,WindowSize.height - GetSize().y/2});
 }
 void Paddle::SetSize(sf::Vector2f size)
 {
@@ -39,21 +43,18 @@ void Paddle::SetSize(sf::Vector2f size)
 }
 bool Paddle::CollwithBall(Ball *b)
 {
-    
     //Need to create paddleEdge, as if the paddles globalbounds are used for the collision,
     //the ball gets stuck inside the paddle - if it hits on the top/bottom edges
     sf::FloatRect intersection,paddleEdge;
     paddleEdge = paddle_shape.getGlobalBounds();
-    paddleEdge.left = paddle_shape.getPosition().x;
+    //paddleEdge.left = paddle_shape.getPosition().x;
     //Set the paddleEdge width to the width of the ball to help avoid trapping
-    paddleEdge.width = b->GetRect().width*0.95;
     
     if(paddleEdge.intersects(b->GetRect(), intersection))
     {
-        b->Collide(paddle_shape.getPosition(), paddle_shape.getSize().y, intersection.top+(intersection.height/2));
+        b->Collide(paddle_shape.getPosition(), paddle_shape.getSize().y, intersection.top+(intersection.height/2.1f));
         return true;
     }
-    
     return false;
 }
 sf::Vector2f Paddle::GetVelocity()
@@ -86,6 +87,11 @@ void Paddle::Move(float dt)
 {
     paddle_shape.move({Velocity.x * dt,Velocity.y * dt});
 }
+void Paddle::Move(float moveX, float moveY, float dt)
+{
+    Velocity = {moveX*dt,moveY*dt};
+    paddle_shape.move(Velocity);
+}
 void Paddle::SetVelocity(sf::Vector2f vel)
 {
     Velocity = vel;
@@ -98,10 +104,9 @@ void Paddle::Render(std::shared_ptr<Window> window)
 {
     window->draw(paddle_shape);
 }
-
-void Paddle::GiveWindowSize(sf::Vector2f winsize)
+void Paddle::GiveGameArea(sf::IntRect GameArea)
 {
-    WindowSize = winsize;
+    WindowSize = GameArea;
 }
 void Paddle::setlastTouched(bool lt)
 {

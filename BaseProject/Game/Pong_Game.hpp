@@ -34,6 +34,7 @@ private:
     void saveSavestofile();
     void LoadSave(PongSaveStruct PSS);
     void LoadSaveFromFile(std::string filename);
+    PongSaveStruct scaleSave(PongSaveStruct PSS1,PongSaveStruct PSS2,int scale,int current);
     
     std::vector<PongSaveStruct> PongSaves;
     std::array<std::shared_ptr<Paddle>, 2> paddles;
